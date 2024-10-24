@@ -20,14 +20,17 @@ st.dataframe(df)
 # 입력 필드를 두 개의 열로 나누기
 col1, col2, col3 = st.columns(3)
 
+# 예시 
+
+
+
 # 첫 번째 필터링 조건 (가로 배치, '지역'을 기본값으로 설정)
 with col1:
-    # '지역' 컬럼이 있으면 기본값으로 설정
-    if '지역' in df.columns:
-        column_name1 = st.selectbox('첫 번째 조건을 적용할 컬럼을 선택하세요', df.columns, key='col1', index=df.columns.get_loc('지역'))
-    else:
-        column_name1 = st.selectbox('첫 번째 조건을 적용할 컬럼을 선택하세요', df.columns, key='col1')
+    # '지역' 컬럼을 고정으로 설정
+    st.markdown("**첫 번째 조건을 적용할 컬럼: 지역**")  # '지역'을 고정 값으로 표시
+    column_name1 = '지역'  # '지역'을 고정된 값으로 사용
 
+    # '지역' 컬럼에 대해 조건 값을 입력받음
     condition_value1 = st.text_input(f"'{column_name1}' 컬럼에서 검색할 조건을 입력하세요", key='val1')
 
 # 두 번째 필터링 조건 (두 번째 열, '시' 기본값)
