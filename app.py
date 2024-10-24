@@ -62,7 +62,8 @@ if st.button("데이터 검색"):
         # 두 개의 조건을 기반으로 데이터 필터링
         filtered_data = df[
             df[column_name1].astype(str).str.contains(condition_value1, case=False, na=False) &
-            df[column_name2].astype(str).str.contains(condition_value2, case=False, na=False)
+            df[column_name2].astype(str).str.contains(condition_value2, case=False, na=False) &
+            df[column_name3].astype(str).str.contains(condition_value3, case=False, na=False)
         ]
 
         st.text("")
