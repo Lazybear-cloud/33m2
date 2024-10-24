@@ -52,11 +52,11 @@ with col2:
 
 # 세 번째 필터링 조건 (세 번째 열, '구' 기본값)
 with col3:
-    if '구' in df.columns:
-        column_name3 = st.selectbox('세 번째 조건을 적용할 컬럼을 선택하세요', df.columns, key='col3', index=df.columns.get_loc('구'))
-    else:
-        column_name3 = st.selectbox('세 번째 조건을 적용할 컬럼을 선택하세요', df.columns, key='col3')
+    # '시' 컬럼을 고정으로 설정
+    st.markdown("**동/구를 입력해주세요.**")  # '지역'을 고정 값으로 표시
+    column_name3 = '구'  # '시'을 고정된 값으로 사용
 
+    # '지역' 컬럼에 대해 조건 값을 입력받음
     condition_value3 = st.text_input(f"'{column_name3}' 컬럼에서 검색할 조건을 입력하세요", key='val3')
 
 
