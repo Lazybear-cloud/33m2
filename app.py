@@ -68,10 +68,9 @@ if st.button("데이터 검색"):
         
         # 검색 결과가 있을 경우 출력
         if not filtered_data.empty:
-            print()
             st.write(f"조건에 맞는 데이터 (총 {len(filtered_data)}건):")
             st.dataframe(filtered_data)
         else:
             st.write("조건에 맞는 데이터가 없습니다.")
     else:
-        st.write("검색할 두 조건을 모두 입력하세요.")
+        st.write("검색할 조건을 모두 입력하세요.")
