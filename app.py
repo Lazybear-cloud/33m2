@@ -7,9 +7,11 @@ st.set_page_config(layout="wide")
 # 웹페이지 제목
 st.title("Lazy._.bear 33m2 물건 검색기")
 
-# 미리 업로드된 엑셀 파일 불러오기
-excel_file_path = 'https://github.com/Lazybear-cloud/33m2/blob/main/33m2_data.xlsx'  # 엑셀 파일 경로 입력
-df = pd.read_excel(excel_file_path, engine='openpyxl')
+# GitHub에 있는 엑셀 파일의 raw 경로
+url = 'https://github.com/Lazybear-cloud/33m2/raw/main/33m2_data.xlsx'
+
+# 엑셀 파일을 pandas DataFrame으로 읽기
+df = pd.read_excel(url, engine='openpyxl')
 
 # 데이터 미리보기
 st.write("전체 데이터 미리보기:")
