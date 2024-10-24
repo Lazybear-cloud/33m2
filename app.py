@@ -65,8 +65,6 @@ if st.button("데이터 검색"):
             df[column_name2].astype(str).str.contains(condition_value2, case=False, na=False)
         ]
 
-print()
-print()
         
         # 검색 결과가 있을 경우 출력
         if not filtered_data.empty:
