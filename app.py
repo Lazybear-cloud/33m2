@@ -8,7 +8,7 @@ st.set_page_config(layout="wide")
 st.title("Lazy._.bear 33m2 물건 검색기")
 
 # GitHub에 있는 엑셀 파일의 raw 경로
-url = 'https://github.com/Lazybear-cloud/33m2/blob/main/33m2_data.xlsx'
+url = 'https://github.com/Lazybear-cloud/33m2/blob/main/33m2_data1.xlsx'
 
 # 엑셀 파일을 pandas DataFrame으로 읽기
 df = pd.read_excel(url, engine='openpyxl')
