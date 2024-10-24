@@ -8,7 +8,7 @@ st.set_page_config(layout="wide")
 st.title("엑셀 파일에서 데이터 검색")
 
 # 미리 업로드된 엑셀 파일 불러오기
-excel_file_path = 'C:/임형태/33m2_data.xlsx'  # 엑셀 파일 경로 입력
+excel_file_path = 'https://github.com/Lazybear-cloud/33m2/blob/main/33m2_data.xlsx'  # 엑셀 파일 경로 입력
 df = pd.read_excel(excel_file_path, engine='openpyxl')
 
 # 데이터 미리보기
