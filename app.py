@@ -14,8 +14,8 @@ url = 'https://github.com/Lazybear-cloud/33m2/raw/main/33m2_data.xlsx'
 df = pd.read_excel(url, engine='openpyxl')
 
 # 데이터 미리보기
-#st.write("전체 데이터 미리보기:")
-#st.dataframe(df)
+st.write("전체 데이터 미리보기:")
+st.dataframe(df.head(1000))
 
 # 입력 필드를 두 개의 열로 나누기
 col1, col2, col3 = st.columns(3)
