@@ -15,7 +15,7 @@ df = pd.read_excel(url, engine='openpyxl')
 
 # 데이터 미리보기
 st.write("일부 데이터 미리보기:")
-st.dataframe(df.head(1000))
+st.dataframe(df.head(300))
 
 # 필터링된 데이터의 행 수 출력
 st.write(f"총 물건 개수: {df.shape[0]}개")
