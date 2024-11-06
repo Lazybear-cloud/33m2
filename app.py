@@ -17,6 +17,9 @@ df = pd.read_excel(url, engine='openpyxl')
 st.write("일부 데이터 미리보기:")
 st.dataframe(df.head(1000))
 
+# 필터링된 데이터의 행 수 출력
+st.write(f"검색된 물건 개수: {df.shape[0]}개")
+
 # 입력 필드를 두 개의 열로 나누기
 col1, col2, col3 = st.columns(3)
 
@@ -58,7 +61,7 @@ with col3:
 
 
 # 데이터 검색 버튼
-if st.sidebar.button("데이터 검색"):
+if st.button("데이터 검색"):
     # 조건을 동적으로 구성하여 입력된 값에 맞게 필터링
     filtered_data = df[
         (df["지역"].astype(str).str.contains(condition_value1, case=False, na=False)) &
