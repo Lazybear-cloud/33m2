@@ -63,15 +63,13 @@ with col3:
 # 데이터 검색 버튼
 if st.button("데이터 검색"):
     # 조건을 동적으로 구성하여 입력된 값에 맞게 필터링
-    filtered_data = df[
-        (df["지역"].astype(str).str.contains(condition_value1, case=False, na=False)) &
-        (df["시"].astype(str).str.contains(condition_value2, case=False, na=False)) &
-        (df["구"].astype(str).str.contains(condition_value3, case=False, na=False)) &
-        ((df["구"].astype(str).str.contains(condition_value3, case=False, na=False)) if condition_value3 != "전체" else True)  # 지역2가 "전체"일 경우 모든 값 허용
-    ]
+if condition_value3 != "전체":
+    column_filtered_df3 = column_filtered_df2[filtered_df2['구'] == condition_value3]
+else:
+    column_filtered_df3 = column_filtered_df2
 
     # 필터링된 데이터 표시
-    st.dataframe(filtered_data)
+    st.dataframe(column_filtered_df3)
 
     # 필터링된 데이터의 행 수 출력
     st.write(f"검색된 물건 개수: {filtered_data.shape[0]}개")
