@@ -43,7 +43,7 @@ with col2:
     st.markdown("**구/시를 입력해주세요.**")  # '지역'을 고정 값으로 표시
     column_name2 = '시'  # '시'을 고정된 값으로 사용
     column_filtered_df1 = df[df['지역'] == condition_value1]
-    column_option2 = sorted(column_filtered_df1['시/구'].dropna().unique())
+    column_option2 = sorted(column_filtered_df1['시'].dropna().unique())
 
     # '지역' 컬럼에 대해 조건 값을 입력받음
     condition_value2 = st.selectbox("", column_option2)
