@@ -18,7 +18,7 @@ st.write("일부 데이터 미리보기:")
 st.dataframe(df.head(1000))
 
 # 필터링된 데이터의 행 수 출력
-st.write(f"검색된 물건 개수: {df.shape[0]}개")
+st.write(f"총 물건 개수: {df.shape[0]}개")
 
 # 입력 필드를 두 개의 열로 나누기
 col1, col2, col3 = st.columns(3)
