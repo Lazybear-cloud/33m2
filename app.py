@@ -64,7 +64,7 @@ with col3:
 if st.button("데이터 검색"):
     # 조건을 동적으로 구성하여 입력된 값에 맞게 필터링
     if condition_value3 != "전체":
-        column_filtered_df3 = column_filtered_df2[filtered_df2['구'] == condition_value3]
+        column_filtered_df3 = column_filtered_df2[column_filtered_df2['구'] == condition_value3]
     else:
         column_filtered_df3 = column_filtered_df2
     
@@ -73,6 +73,3 @@ if st.button("데이터 검색"):
     
     # 필터링된 데이터의 행 수 출력
     st.write(f"검색된 물건 개수: {column_filtered_df3.shape[0]}개")
-
-else:
-    st.write("정보를 정확히 입력하고 데이터 검색 버튼을 누르세요.")
