@@ -23,7 +23,6 @@ col1, col2, col3 = st.columns(3)
 # 첫 번째 필터링 조건 (가로 배치, '지역'을 기본값으로 설정)
 with col1:
     # '지역' 컬럼을 고정으로 설정하고 선택할 수 있는 리스트 제공
-    st.markdown("**지역을 선택해주세요.**")  # '지역'을 고정 값으로 표시
     column_name1 = '지역'  # '지역'을 고정된 값으로 사용
 
     # '지역' 선택을 위한 리스트 정의
@@ -40,42 +39,39 @@ with col1:
 # 두 번째 필터링 조건 (두 번째 열, '시' 기본값)
 with col2:
     # '시' 컬럼을 고정으로 설정
-    st.markdown("**구/시를 입력해주세요.**")  # '지역'을 고정 값으로 표시
     column_name2 = '시'  # '시'을 고정된 값으로 사용
     column_filtered_df1 = df[df['지역'] == condition_value1]
     column_option2 = sorted(column_filtered_df1['시'].dropna().unique())
 
     # '지역' 컬럼에 대해 조건 값을 입력받음
-    condition_value2 = st.selectbox("", column_option2)
+    condition_value2 = st.selectbox(f"'{column_name2}' 컬럼에서 검색할 조건을 선택하세요", column_option2)
 
 # 세 번째 필터링 조건 (세 번째 열, '구' 기본값)
 with col3:
     # '시' 컬럼을 고정으로 설정
-    st.markdown("**동/구를 입력해주세요.**")  # '지역'을 고정 값으로 표시
     column_name3 = '구'  # '시'을 고정된 값으로 사용
-
+    column_filtered_df2 = df[df['지역'] == condition_value2]
+    column_option2 = ["전체"] + sorted(column_filtered_df1['구'].dropna().unique())
+    
     # '지역' 컬럼에 대해 조건 값을 입력받음
-    condition_value3 = st.text_input(f"'{column_name3}' 컬럼에서 검색할 조건을 입력하세요", key='val3')
+    condition_value3 = st.selectbox(f"'{column_name3}' 컬럼에서 검색할 조건을 선택하세요", column_option3)
 
 
-# 사용자가 필터링 버튼을 눌렀을 때
-if st.button("데이터 검색"):
-    if condition_value1 and condition_value2:
-        # 두 개의 조건을 기반으로 데이터 필터링
-        filtered_data = df[
-            df[column_name1].astype(str).str.contains(condition_value1, case=False, na=False) &
-            df[column_name2].astype(str).str.contains(condition_value2, case=False, na=False) &
-            df[column_name3].astype(str).str.contains(condition_value3, case=False, na=False)
-        ]
+# 데이터 검색 버튼
+if st.sidebar.button("데이터 검색"):
+    # 조건을 동적으로 구성하여 입력된 값에 맞게 필터링
+    filtered_data = df[
+        (df["지역"].astype(str).str.contains(condition_value1, case=False, na=False)) &
+        (df["시"].astype(str).str.contains(condition_value2, case=False, na=False)) &
+        (df["구"].astype(str).str.contains(condition_value3, case=False, na=False)) &
+        ((df["구"].astype(str).str.contains(condition_value3, case=False, na=False)) if region2 != "전체" else True)  # 지역2가 "전체"일 경우 모든 값 허용
+    ]
 
-        st.text("")
-        st.text("")
-        
-        # 검색 결과가 있을 경우 출력
-        if not filtered_data.empty:
-            st.write(f"조건에 맞는 데이터 (총 {len(filtered_data)}건):")
-            st.dataframe(filtered_data)
-        else:
-            st.write("조건에 맞는 데이터가 없습니다.")
-    else:
-        st.write("검색할 조건을 모두 입력하세요.")
+    # 필터링된 데이터 표시
+    st.dataframe(filtered_data)
+
+    # 필터링된 데이터의 행 수 출력
+    st.write(f"검색된 물건 개수: {filtered_data.shape[0]}개")
+
+else:
+    st.write("검색 조건을 설정하고 '데이터 검색' 버튼을 눌러주세요.")
