@@ -51,7 +51,7 @@ with col3:
     # '시' 컬럼을 고정으로 설정
     column_name3 = '구'  # '시'을 고정된 값으로 사용
     column_filtered_df2 = df[df['시'] == condition_value2]
-    column_option2 = ["전체"] + sorted(column_filtered_df1['구'].dropna().unique())
+    column_option3 = ["전체"] + sorted(column_filtered_df1['구'].dropna().unique())
     
     # '지역' 컬럼에 대해 조건 값을 입력받음
     condition_value3 = st.selectbox(f"'{column_name3}' 컬럼에서 검색할 조건을 선택하세요", column_option3)
