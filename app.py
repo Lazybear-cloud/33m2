@@ -67,7 +67,7 @@ if st.button("데이터 검색"):
         (df["지역"].astype(str).str.contains(condition_value1, case=False, na=False)) &
         (df["시"].astype(str).str.contains(condition_value2, case=False, na=False)) &
         (df["구"].astype(str).str.contains(condition_value3, case=False, na=False)) &
-        ((df["구"].astype(str).str.contains(condition_value3, case=False, na=False)) if region2 != "전체" else True)  # 지역2가 "전체"일 경우 모든 값 허용
+        ((df["구"].astype(str).str.contains(condition_value3, case=False, na=False)) if condition_value3 != "전체" else True)  # 지역2가 "전체"일 경우 모든 값 허용
     ]
 
     # 필터링된 데이터 표시
