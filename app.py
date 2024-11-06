@@ -72,7 +72,7 @@ if st.button("데이터 검색"):
     st.dataframe(column_filtered_df3)
     
     # 필터링된 데이터의 행 수 출력
-    st.write(f"검색된 물건 개수: {filtered_data.shape[0]}개")
+    st.write(f"검색된 물건 개수: {column_filtered_df3.shape[0]}개")
 
 else:
     st.write("정보를 정확히 입력하고 데이터 검색 버튼을 누르세요.")
