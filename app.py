@@ -53,7 +53,7 @@ with col2:
 with col3:
     # '시' 컬럼을 고정으로 설정
     column_name3 = '구'  # '시'을 고정된 값으로 사용
-    column_filtered_df2 = df[df['시'] == condition_value2]
+    column_filtered_df2 = column_filtered_df1[column_filtered_df1['시'] == condition_value2]
     column_option3 = ["전체"] + sorted(column_filtered_df2['구'].dropna().unique())
     
     # '지역' 컬럼에 대해 조건 값을 입력받음
@@ -62,6 +62,7 @@ with col3:
 
 # 데이터 검색 버튼
 if st.button("데이터 검색"):
+    
     # 조건을 동적으로 구성하여 입력된 값에 맞게 필터링
     if condition_value3 != "전체":
         column_filtered_df3 = column_filtered_df2[column_filtered_df2['구'] == condition_value3]
