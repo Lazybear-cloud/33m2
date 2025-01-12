@@ -77,6 +77,7 @@ if st.button("데이터 검색"):
 
 
 avg_reservation = df.groupby('시')['예약률'].mean()
+avg_reservation_df = avg_reservation.reset_index()
 st.dataframe(avg_reservation)
 
 
