@@ -83,5 +83,6 @@ avg_reservation = df.groupby('시')['예약률'].mean()
 avg_reservation_df = avg_reservation.reset_index()
 st.dataframe(avg_reservation)
 
+df['시'].fillna(df['시'].mean(), inplace=True)
 st.bar_chart(data=avg_reservation, x='시', y='예약율')
 
