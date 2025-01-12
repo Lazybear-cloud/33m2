@@ -21,7 +21,7 @@ st.dataframe(df.head(300))
 st.write(f"총 물건 개수: {df.shape[0]}개")
 
 # 입력 필드를 두 개의 열로 나누기
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4, col5, col6 = st.columns(6)
 
 # 첫 번째 필터링 조건 (가로 배치, '지역'을 기본값으로 설정)
 with col1:
