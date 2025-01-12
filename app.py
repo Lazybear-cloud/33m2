@@ -74,3 +74,10 @@ if st.button("데이터 검색"):
     
     # 필터링된 데이터의 행 수 출력
     st.write(f"검색된 물건 개수: {column_filtered_df3.shape[0]}개")
+
+
+avg_reservation = df.groupby('시')['예약률'].mean()
+st.dataframe(avg_reservation)
+
+
+
