@@ -77,6 +77,7 @@ if st.button("데이터 검색"):
 
 
 df = df[df['지역'] == '서울특별시']
+df = df[df['시'] != 'error']
 df['예약률'] = pd.to_numeric(df['예약률'], errors='coerce')
 df['예약률'] = df['예약률'].astype(float)
 avg_reservation = df.groupby('시')['예약률'].mean()
