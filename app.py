@@ -83,5 +83,6 @@ avg_reservation = df.groupby('시')['예약률'].mean()
 avg_reservation_df = avg_reservation.reset_index()
 st.dataframe(avg_reservation)
 
-
+fig = ploty.bar(df, x = '시', y = '에약률')
+st.plotly_chart(fig)
 
