@@ -87,7 +87,7 @@ st.bar_chart(data=avg_reservation_df, x='시', y='예약률')
 
 # Plotly 막대 그래프 생성
 fig = px.bar(
-    avg_reservation,
+    avg_reservation_df,
     x='시',                # X축 데이터
     y='예약율',            # Y축 데이터
     title='서울시 구별 평균 예약률',  # 그래프 제목
