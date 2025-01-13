@@ -81,7 +81,7 @@ df['예약률'] = pd.to_numeric(df['예약률'], errors='coerce')
 df['예약률'] = df['예약률'].astype(float)
 avg_reservation = df.groupby('시')['예약률'].mean()
 avg_reservation_df = avg_reservation.reset_index()
-st.dataframe(avg_reservation)
+st.dataframe(avg_reservation_df)
 
-st.bar_chart(data=avg_reservation, x='시', y='예약률')
+st.bar_chart(data=avg_reservation_df, x='시', y='예약률')
 
