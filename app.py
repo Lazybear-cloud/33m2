@@ -85,3 +85,17 @@ avg_reservation_df['예약률'] = avg_reservation_df['예약률']*100
 
 st.bar_chart(data=avg_reservation_df, x='시', y='예약률')
 
+# Plotly 막대 그래프 생성
+fig = px.bar(
+    avg_reservation,
+    x='시',                # X축 데이터
+    y='예약율',            # Y축 데이터
+    title='서울시 구별 평균 예약률',  # 그래프 제목
+    labels={'예약률': '평균 예약율 (%)', '시': '지역'},  # 축 레이블
+    color='시',             # 색상 기준 (옵션)
+    color_discrete_sequence=px.colors.qualitative.Bold  # 색상 팔레트 (옵션)
+)
+
+# Plotly 그래프 표시
+st.plotly_chart(fig)
+
