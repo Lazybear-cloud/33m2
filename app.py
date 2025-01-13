@@ -89,7 +89,7 @@ st.bar_chart(data=avg_reservation_df, x='시', y='예약률')
 fig = px.bar(
     avg_reservation_df,
     x='시',                # X축 데이터
-    y='예약율',            # Y축 데이터
+    y='예약률',            # Y축 데이터
     title='서울시 구별 평균 예약률',  # 그래프 제목
     labels={'예약률': '평균 예약율 (%)', '시': '지역'},  # 축 레이블
     color='시',             # 색상 기준 (옵션)
