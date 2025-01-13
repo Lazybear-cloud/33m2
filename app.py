@@ -76,7 +76,7 @@ if st.button("데이터 검색"):
     st.write(f"검색된 물건 개수: {column_filtered_df3.shape[0]}개")
 
 
-st.header('서울시 구별 예약률')
+st.subheader('서울시 구별 예약률')
 df = df[df['지역'] == '서울특별시']
 df['예약률'] = pd.to_numeric(df['예약률'], errors='coerce')
 df['예약률'] = df['예약률'].astype(float)
